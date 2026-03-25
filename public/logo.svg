@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Black circle background -->
+  <circle cx="200" cy="200" r="196" fill="#0B0B0B"/>
+  <!-- Neon green glowing outer ring -->
+  <circle cx="200" cy="200" r="196" fill="none" stroke="#00FF88" stroke-width="4" opacity="0.9"/>
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#00FF88" stroke-width="1" opacity="0.3"/>
+
+  <!-- Far left candle (shortest, low opacity) -->
+  <g opacity="0.11">
+    <line x1="108" y1="108" x2="108" y2="98" stroke="#00FF88" stroke-width="2"/>
+    <rect x="99" y="118" width="18" height="46" rx="2" fill="#00FF88"/>
+    <line x1="108" y1="164" x2="108" y2="174" stroke="#00FF88" stroke-width="2"/>
+  </g>
+
+  <!-- Left-center candle (medium, low opacity) -->
+  <g opacity="0.18">
+    <line x1="152" y1="96" x2="152" y2="84" stroke="#00FF88" stroke-width="2"/>
+    <rect x="143" y="104" width="18" height="66" rx="2" fill="#00FF88"/>
+    <line x1="152" y1="170" x2="152" y2="182" stroke="#00FF88" stroke-width="2"/>
+  </g>
+
+  <!-- Hero center candle (tallest, solid neon green) -->
+  <line x1="200" y1="72" x2="200" y2="58" stroke="#00FF88" stroke-width="2.5"/>
+  <rect x="189" y="82" width="22" height="100" rx="3" fill="#00FF88"/>
+  <line x1="200" y1="182" x2="200" y2="196" stroke="#00FF88" stroke-width="2.5"/>
+  <!-- Upward arrow above hero candle -->
+  <polygon points="200,40 214,62 186,62" fill="#00FF88"/>
+
+  <!-- Right-center candle (medium, low opacity) -->
+  <g opacity="0.18">
+    <line x1="248" y1="96" x2="248" y2="84" stroke="#00FF88" stroke-width="2"/>
+    <rect x="239" y="104" width="18" height="66" rx="2" fill="#00FF88"/>
+    <line x1="248" y1="170" x2="248" y2="182" stroke="#00FF88" stroke-width="2"/>
+  </g>
+
+  <!-- Far right candle (shortest, low opacity) -->
+  <g opacity="0.11">
+    <line x1="292" y1="108" x2="292" y2="98" stroke="#00FF88" stroke-width="2"/>
+    <rect x="283" y="118" width="18" height="46" rx="2" fill="#00FF88"/>
+    <line x1="292" y1="164" x2="292" y2="174" stroke="#00FF88" stroke-width="2"/>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="50" y1="212" x2="350" y2="212" stroke="#00FF88" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- PriceAction text -->
+  <text x="200" y="268" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="38" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">PriceAction</text>
+
+  <!-- AI badge -->
+  <rect x="152" y="282" width="96" height="40" rx="10" fill="#00FF88"/>
+  <text x="200" y="311" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22" fill="#0B0B0B" text-anchor="middle" letter-spacing="7">AI</text>
+</svg>

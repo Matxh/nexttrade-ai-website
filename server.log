@@ -1,0 +1,7 @@
+[Stripe] STRIPE_SECRET_KEY not set — payments disabled
+
+  PriceAction AI — /tmp storage (no MongoDB needed)
+  Pipeline: Haiku(x2 parallel) → Sonnet → Opus
+  Stripe: disabled
+  http://localhost:3000
+

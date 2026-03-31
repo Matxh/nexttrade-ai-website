@@ -151,7 +151,7 @@ section{position:relative;z-index:1}
 
 /* PRICING */
 .pricing-section{padding:80px 24px;max-width:900px;margin:0 auto;text-align:center}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:48px}
 .price-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;transition:all .2s;text-align:left}
 .price-card:hover{transform:translateY(-4px)}
 .price-card.featured{border-color:rgba(0,229,180,.4);box-shadow:0 0 50px rgba(0,229,180,.08)}
@@ -1062,6 +1062,29 @@ nav { border-bottom-color: rgba(0,229,180,.08); box-shadow: 0 1px 30px rgba(0,0,
           <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Compound Growth Projector</div>
         </div>
         <button class="price-btn pro" onclick="startCheckout('pro')">Get Pro →</button>
+      </div>
+      <!-- TradingView Indicator Add-On -->
+      <div class="price-card indicator" style="background:linear-gradient(135deg,var(--card) 0%,rgba(0,229,180,0.05) 100%);border:1px solid rgba(0,229,180,0.3);position:relative">
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:4px 12px;border-radius:20px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase">Add-On</div>
+        <div class="price-name" style="display:flex;align-items:center;gap:8px;margin-top:10px">
+          <span style="font-size:24px">📊</span> TradingView Indicator
+        </div>
+        <div class="price-amount"><sup>$</sup>9.99</div>
+        <div class="price-period">per month · billed monthly</div>
+        <div style="font-size:13px;color:var(--text2);margin:12px 0;line-height:1.5;text-align:center">
+          The PriceAction AI SMC Suite indicator — Order Blocks, FVGs, BOS/CHOCH & Killzones. Invite-only access on TradingView.
+        </div>
+        <div class="price-features">
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Order Blocks & FVGs</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>BOS / CHOCH detection</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ICT Killzones (Asia, London, NY)</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Signal plotter (▲/▼ scores)</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PA AI watermark</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Works standalone or with plan</div>
+          <div class="price-feat yes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#00e676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Invite-only TradingView access</div>
+        </div>
+        <button class="price-btn" onclick="startCheckout('indicator')" style="background:var(--accent);color:#000">Get Indicator →</button>
+      </div>
       </div>
     </div>
     <p style="text-align:center;margin-top:20px;font-family:var(--mono);font-size:11px;color:var(--text3)">⚠ Not financial advice · Educational use only · Cancel anytime</p>

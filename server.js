@@ -832,7 +832,7 @@ function safeUser(u) {
 app.post('/api/checkout/create', authMiddleware, async (req, res) => {
   if (!stripe) return res.status(500).json({ error: 'Stripe is not configured on the server' });
   const { plan } = req.body;
-  const priceId  = plan === 'pro' ? process.env.STRIPE_PRO_PRICE_ID : process.env.STRIPE_BASIC_PRICE_ID;
+  const priceId = plan === 'pro' ? process.env.STRIPE_PRO_PRICE_ID : plan === 'indicator' ? process.env.STRIPE_INDICATOR_PRICE_ID : process.env.STRIPE_BASIC_PRICE_ID;
   if (!priceId)  return res.status(500).json({ error: 'Price ID not configured for this plan' });
 
   const user = req.user;
@@ -896,7 +896,7 @@ app.post('/api/webhook', async (req, res) => {
         if (userId && session.subscription) {
           const sub  = await stripe.subscriptions.retrieve(session.subscription);
           const pid  = sub.items.data[0]?.price?.id;
-          const plan = pid === process.env.STRIPE_PRO_PRICE_ID ? 'pro' : 'basic';
+          const plan = pid === process.env.STRIPE_PRO_PRICE_ID ? 'pro' : pid === process.env.STRIPE_INDICATOR_PRICE_ID ? 'indicator' : 'basic';
           const user = await getUserById(userId);
           if (user) { Object.assign(user, { plan, stripeCustomerId: session.customer, stripeSubscriptionId: session.subscription, subscriptionStatus: 'active' }); await saveUser(user); }
           console.log(`[Webhook] checkout.session.completed → ${userId} now on ${plan}`);
@@ -906,7 +906,7 @@ app.post('/api/webhook', async (req, res) => {
       case 'customer.subscription.updated': {
         const sub  = event.data.object;
         const pid  = sub.items.data[0]?.price?.id;
-        const plan = pid === process.env.STRIPE_PRO_PRICE_ID ? 'pro' : 'basic';
+        const plan = pid === process.env.STRIPE_PRO_PRICE_ID ? 'pro' : pid === process.env.STRIPE_INDICATOR_PRICE_ID ? 'indicator' : 'basic';
         const status = sub.status === 'active' ? 'active' : sub.status;
         const allUsers1 = await getAllUsers();
         const user1  = allUsers1.find(u => u.stripeSubscriptionId === sub.id || u.stripeCustomerId === sub.customer);

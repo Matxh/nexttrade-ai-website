@@ -1,3 +1,13 @@
 node_modules/
 .env
 .DS_Store
+
+# SECURITY: Never commit sensitive files
+.env
+.env.local
+.env.production
+*.pem
+*.key
+*.crt
+server.log
+*.log

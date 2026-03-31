@@ -2567,20 +2567,7 @@ function stopLoading(){
 
 function showErr(msg){
   if(stepTmr)clearInterval(stepTmr);$('stateLoading').classList.remove('on');$('stateEmpty').classList.add('hidden');
-  $('stateError').innerHTML='<strong>Analysis failed</strong><br>' + sanitizeHTML(msg);$('stateError').classList.add('on');
-}
-
-// ══════════════════════════════════════════════════════════════
-// SECURITY: XSS Sanitization Helper
-// ══════════════════════════════════════════════════════════════
-function sanitizeHTML(str) {
-  if (!str || typeof str !== 'string') return '';
-  return str.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'"'/g, ''&#x27;')
-            .replace(/\//g, '&#x2F;');
+  $('stateError').innerHTML='<strong>Analysis failed</strong><br>'+msg;$('stateError').classList.add('on');
 }
 
 function showResult(d){
@@ -2596,15 +2583,11 @@ function showResult(d){
   $('vSummary').textContent=d.summary||'';
   if(d.entry){
     $('lEntry').textContent=d.entry;$('lSL').textContent=d.sl||'N/A';$('lTP1').textContent=d.tp1||'N/A';$('lTP2').textContent=d.tp2||'—';$('lTP3').textContent=d.tp3||'—';$('lSize').textContent=d.position_size||'Max 1%';
-    // Sanitized R:R pill
-    const rrSafe = d.rr_tp1 ? sanitizeHTML(d.rr_tp1) : '';
-    $('rrPill').innerHTML=rrSafe?`<div class="rr-pill">⚡ R:R ${d.rr_tp1}${d.rr_tp2?' → '+d.rr_tp2:''}${d.rrLabel?' · '+d.rrLabel:''}</div>`:'';
+    $('rrPill').innerHTML=d.rr_tp1?`<div class="rr-pill">⚡ R:R ${d.rr_tp1}${d.rr_tp2?' → '+d.rr_tp2:''}${d.rrLabel?' · '+d.rrLabel:''}</div>`:'';
     $('rLevels').classList.add('on');
   }
   if(d.factors?.length){
-    // Factors with sanitized notes
-    const factorsSafe = d.factors.map(f => ({...f, note: sanitizeHTML(f.note)}));
-    $('factorsBody').innerHTML=factorsSafe.map(f=>`<div class="factor-row"><div class="f-label">${f.name}</div><div class="f-bar"><div class="f-fill" id="ff_${f.name.replace(/\W/g,'_')}" style="background:${FCOLORS[f.name]||'#00e5b4'}"></div></div><div class="f-score">${f.score}</div>${f.note?`<div class="f-note">${f.note}</div>`:''}</div>`).join('');
+    $('factorsBody').innerHTML=d.factors.map(f=>`<div class="factor-row"><div class="f-label">${f.name}</div><div class="f-bar"><div class="f-fill" id="ff_${f.name.replace(/\W/g,'_')}" style="background:${FCOLORS[f.name]||'#00e5b4'}"></div></div><div class="f-score">${f.score}</div>${f.note?`<div class="f-note">${f.note}</div>`:''}</div>`).join('');
     $('rFactors').classList.add('on');
     setTimeout(()=>d.factors.forEach(f=>{const el=$('ff_'+f.name.replace(/\W/g,'_'));if(el)el.style.width=Math.min(100,f.score||50)+'%';}),80);
   }
